@@ -15,7 +15,8 @@ async function main() {
         repo: repo,
         commit_sha: sha,
     });
-
+    console.log(result);
+    core.setOutput(JSON.stringify(result));
     const prs = result.data.filter((el) => state === 'all' || el.state === state);
     const pr = prs[0];
 
